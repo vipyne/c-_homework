@@ -8,7 +8,7 @@ int main (void) {
     int timeInSeconds;
     int distance;
 
-    std::cout << "enter time (in seconds):\n";
+    std::cout << "enter time (in seconds): ";
     std::cin >> timeInSeconds;
 
     // Distance=1/2 * acceleration * time ^ 2
