@@ -61,6 +61,7 @@ int symbol (const char* str, const char* word)
 		}
 		if ( *wordPointer == '\0' && *stringPointer == ' ' )
 			count++;
+		// reset word pointer to beginning of word
 		wordPointer = word;
         stringPointer++;
     } 
