@@ -2,19 +2,17 @@
 #include <cstdlib>
 #include <cstring>
 
-//const std::string PROSE = "To be or not to be – that is the question: Whether 'tis nobler in the mind to suffer the slings and arrows of outrageous fortune, or to take arms against a sea of troubles and, by opposing, end them. To die, to sleep";
+const char* PROSE = "To be or not to be – that is the question: Whether 'tis nobler in the mind to suffer the slings and arrows of outrageous fortune, or to take arms against a sea of troubles and, by opposing, end them. To die, to sleep";
 
 int stringLength (const char*);
 int symbol (const char*, char);
 int symbol (const char*, const char*);
 
-int main (int argc, char* argv[])
+int main ( void )
 {
-	
-	const char* PROSE = "To be or not to be – that is the question: Whether 'tis nobler in the mind to suffer the slings and arrows of outrageous fortune, or to take arms against a sea of troubles and, by opposing, end them. To die, to sleep";
-	std::cout << stringLength(PROSE) << std::endl;
-	std::cout << symbol(PROSE, ' ') << std::endl;
-	std::cout << symbol(PROSE, "the") << std::endl;
+	std::cout << "string length is: " << stringLength(PROSE) << std::endl;
+	std::cout << "the number of blank spaces is: " << symbol(PROSE, ' ') << std::endl;
+	std::cout << "the number of times the word 'the' appears: " << symbol(PROSE, "the") << std::endl;
 
 	return 0;
 }
@@ -24,7 +22,7 @@ int stringLength (const char* str)
 	int length = 0;
 	const char* stringPointer = str;
 
-	while ( *stringPointer != '\0')
+	while ( *stringPointer != '\0' )
 	{
 		stringPointer++;	
 		length++;
@@ -38,7 +36,7 @@ int symbol (const char* str, char space)
 	int count = 0;
 	const char* stringPointer = str;
 
-	while ( *stringPointer != '\0')
+	while ( *stringPointer != '\0' )
 	{
 		if ( *stringPointer == space )
 			count++;
@@ -54,10 +52,16 @@ int symbol (const char* str, const char* word)
     const char* stringPointer = str;
 	const char* wordPointer = word;
 
-    while ( *stringPointer != '\0')
+    while ( *stringPointer != '\0' )
     {   
-        if ( *stringPointer == *wordPointer )
-            count++;
+		while ( *wordPointer != '\0' && *stringPointer == *wordPointer )
+		{
+			stringPointer++;
+			wordPointer++;
+		}
+		if ( *wordPointer == '\0' && *stringPointer == ' ' )
+			count++;
+		wordPointer = word;
         stringPointer++;
     } 
 
