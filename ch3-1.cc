@@ -1,35 +1,44 @@
+// CH3-1
 #include <iostream>
-#include <stdio.h>
-#include <string.h>
 
 #define LITERINGALLONS 0.264179
 
-char* itoa (int, char*, int);
-//int strcmp (char*, char*);
-
 int main (void) {
 
-	int miles;
-	int mpg = miles/LITERINGALLONS;	
-	char milesString[4];
-
+	char miles[] = "a";
+    
 	std::cout << "how many miles did you travel by car? \n";
 	std::cout << "(enter 'none' to quit)\n";
 	
-	std::cout << itoa(miles, milesString, 10) << std::endl;
-
-	//while (strcmp(itoa(miles), "none") != 0) 
-	//{
-	//	std::cout << strcmp(miles, "none") != 0 << std::endl;
+	while ( miles[0] != 'n' ) 
+	{
+		std::cout << "miles: ";
 	
-	//	std::cout << "miles: ";
+		std::cin >> miles;
 	
-	//	std::cin >> miles;
-	
-	//	std::cout << "miles per gallon: " << mpg << std::endl;
-
-	//}
+		std::cout << "miles per gallon: " << atoi(miles)/LITERINGALLONS << std::endl;
+	}
 
 	return 0;
-
 }
+
+// v-money c_homework  (master) $ ./qwer
+// how many miles did you travel by car? 
+// (enter 'none' to quit)
+// 1
+// miles: 1234
+// miles per gallon: 4671.08
+// miles: 36345
+// miles per gallon: 137577
+// miles: 8
+// miles per gallon: 30.2825
+// miles: 7
+// miles per gallon: 26.4972
+// miles: 54
+// miles per gallon: 204.407
+// miles: 2473686
+// miles per gallon: 9.36367e+06
+// miles: none
+// miles per gallon: 0
+
+// CH3-
