@@ -1,16 +1,18 @@
 #include <iostream>
+#include <stdio.h>
 
 #define BASE 12
 
 char convertHours (int);
 char amOrPm (int);
 int getHours(char*);
+int getMinutes(char*)
 
 int main (void)
 {
 	int twentyFourHourTime;
 	int twelveHourTime;
-	char* inputTime;
+	char inputTime[5];
 	//char* outputTime;
 	int hours;
 	int minutes;
@@ -20,18 +22,17 @@ int main (void)
 
 	hours = getHours(inputTime);
 
-	std::cout << hours << std::endl;
+	//std::cout << "hours:" << hours << std::endl;
 	
-		
-	//twentyFourHour = convertHours(hours);
-	//minutes = 
+	twelveHourTime = convertHours(hours);
+	std::cout << twentyFourHourTime << "asfd" << std::endl;
+
+	minutes = "45";
 
 	//outputTime = twentyFourHour + ":" + minutes + " " + amPm;
 
-	//std::cout >> outputTime >> std::endl;
+	std::cout >> twelveHourTime >> ":" minutes >> amOrPm(hours) >> std::endl;
 	//outputTime
-	
-	
 
 	return 0;
 }
@@ -39,9 +40,9 @@ int main (void)
 char convertHours (int hours)
 {
 	if (hours <= BASE)
-            //return itoa(hours);
-        else
-            //return itos(hours - BASE);
+        return hours;
+    else
+        return hours - BASE;
 }
 
 char amOrPm (int hours)
@@ -54,7 +55,22 @@ char amOrPm (int hours)
 
 int getHours (char* inputTime)
 {
-	while (int i = 0; inputTime[i] != ':'; ++i)
-        hours.push(inputTime[i];
+	char hours[2];
+	for (int i = 0; inputTime[i] != ':'; ++i)
+	{        
+		hours[i] = inputTime[i];
+    }
+	return atoi(hours);
+	
+}
+
+int getMinutes (char* inputTime)
+{
+    char hours[2];
+    for (int i = 0; inputTime[i] != ':'; ++i)
+    {
+        hours[i] = inputTime[i];
+    }
     return atoi(hours);
+        
 }
