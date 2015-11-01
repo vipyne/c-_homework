@@ -1,5 +1,4 @@
 #include <iostream>
-#
 
 int averageRainfall[] = { 34, 23, 54, 12, 43, 74, 97, 3, 23, 32 };
 
@@ -13,7 +12,6 @@ int main (void)
 	std::cin >> currentMonth;
 
 	std::cout << monthSwitch(currentMonth) << std::endl;
-
 
 	return 0;
 }
