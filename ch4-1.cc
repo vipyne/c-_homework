@@ -10,20 +10,21 @@ int getMinutes (char*);
 
 int main (void)
 {
-	char* inputTime;
-
-  int twentyFourHourTime;
-  int twelveHourTime;
+    char inputTime[5];
+    int twentyFourHourTime;
+    int twelveHourTime;
 	int hours;
 	int minutes;
 
-  std::cout << "what time would you like to convert? ";
-  std::cin >> inputTime;
+    std::cout << "what time would you like to convert? ";
+    std::cin >> inputTime;
 
-  hours = getHours(inputTime);
-  twelveHourTime = convertHours(hours);
+   // intputTime.push_back('\n');
 
-  minutes = getMinutes(inputTime);  
+    hours = getHours(inputTime);
+    twelveHourTime = convertHours(hours);
+
+    minutes = getMinutes(inputTime);  
 
 	std::cout << twelveHourTime << ':' << minutes << (amOrPm(hours)) << std::endl;
 
@@ -50,26 +51,31 @@ int getHours (char* inputTime)
 {
 	char hours[3];
 	for (int i = 0; inputTime[i] != ':'; ++i)
-	{        
+	{   
 		hours[i] = inputTime[i];
     }
+    
 	return atoi(hours);
-	
 }
 
 int getMinutes (char* inputTime)
 {
+    
     char minutes[3];
     int minuteFlag = 0;
+    int minuteCounter = 0;
 
-    for (int i = 0; inputTime[i] != '\n'; ++i)
+    for (int i = 0; inputTime[i] != '\0'; ++i)
     {
-      if (inputTime[i] == ':')
-        minuteFlag = 1;
-      if (minuteFlag)
-      {  
-        minutes[i] = inputTime[i];
-      }
+        if (minuteFlag)
+        {  
+            minutes[minuteCounter] = inputTime[i];
+            minuteCounter++;
+        }
+        if (inputTime[i] == ':')
+        {      
+            minuteFlag = 1;
+        }  
     }
     return atoi(minutes);
 }
