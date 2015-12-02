@@ -12,41 +12,43 @@ struct Point {
 	void ScalePoint(int scale);
 };
 
+
+void Point::setData(int u, int v)
+{
+	X = u;
+	Y = v;
+	R = sqrt(u*u + v*v);
+}
+
+float Point::getRadius()const
+{
+    return R;
+}
+
+int Point::getX()const
+{
+	return X;
+}
+
+int Point::getY()const
+{
+	return Y;
+}
+
+void Point::ScalePoint(int scale)
+{
+	R *= scale;
+}
+
+
 int main(void) 
 {
-	struct Point* P1;
+	struct Point P1;
 
-	setData(P1, 3, 4);
-	std::cout << "Radius of P1 before scale: " << getRadius(P1) << std::endl;
-	ScalePoint(P1, 15);
-	std::cout << "Radius of P1 after scale: " << getRadius(P1) << std::endl;
+	P1.setData(3, 4);
+	std::cout << "Radius of P1 before scale: " << P1.getRadius() << std::endl;
+	P1.ScalePoint(5);
+	std::cout << "Radius of P1 after scale: " << P1.getRadius() << std::endl;
 
 	return 0;
-}
-
-void setData(int u, int v)
-{
-	Point::X = u;
-	Point::Y = v;
-	Point::R = sqrt(u*u + v*v);
-}
-
-float getRadius()
-{
-	return Point::R;
-}
-
-int getX()
-{
-	return Point::X;
-}
-
-int getY()
-{
-	return Point::Y;
-}
-
-void ScalePoint(int scale)
-{
-	Point::R *= scale;
 }
