@@ -12,7 +12,7 @@ class Poly{
         ~Poly( );                         // destructor
         // copy constructor
 
-        // mutators  & accessors
+        // mutators & accessors
         void set( ){                      // Query user for coefficient values);
         void set(int coeff[ ], int size); // input coeffs via external coeff vector
         int getOrder( )const;             // get order of polynomial
@@ -39,3 +39,11 @@ class Poly{
         //other member functions
 };
 
+int main (void) 
+{
+	Poly P1(
+	std::cout << "P3 = P1 + P2 :"
+
+
+	return 0;
+}
